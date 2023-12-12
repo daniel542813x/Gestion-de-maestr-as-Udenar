@@ -106,3 +106,27 @@ export async function createProgramaAcademico(data) {
     }
   }
   
+
+  
+export async function asociarProgramaCoordinador(data){
+  const url = 'http://www.gestionprogramaacademico.somee.com/ProgramaByCoordinador/AsociarProgramaCoordinador';
+
+  const requestConfig = {
+    method: 'POST',
+    url,
+    data,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const response = await axios(requestConfig);
+    return response.data;
+  } catch (error) {
+    // Manejar el error según tus necesidades
+    console.error('Error al realizar la solicitud:', error.message);
+    throw error;
+  }
+}
+  

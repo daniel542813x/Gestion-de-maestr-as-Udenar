@@ -57,4 +57,10 @@ export interface ProgramaAcademico {
     logoByProgramaAcademicos: any[];
   }
 
+interface AsociacionProgramaCoordinador {
+  programaByCoordinadorId: number;
+  idPrograma: number;
+  idCoordinador: number;
+}
+
 export default {}
