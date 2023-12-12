@@ -16,10 +16,10 @@ function validarFormulario() {
         fechaFinalizacion:document.getElementById('fechaFinalizacion').value.trim(),
         numeroEstudiantes: document.getElementById('numberStudents').value.trim(),
     }).then(res => {
-        alert('Estudiante registrado correctamente');
+        alert('Cohorte registrado correctamente');
     }
     ).catch(err => {
-        alert('Error al registrar estudiante');
+        alert('Error al registrar cohorte');
     }
     );
 
