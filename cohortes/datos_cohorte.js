@@ -1,6 +1,6 @@
-import { createCohorte } from '../service/api'
+import { createCohorte }  from '../service/api.js';
 
-document.getElementById('registroFormProgram').addEventListener('submit', function(event) {
+document.getElementById('registroFormCohorte').addEventListener('submit', function(event) {
     event.preventDefault();
 
     if (validarFormulario()) {

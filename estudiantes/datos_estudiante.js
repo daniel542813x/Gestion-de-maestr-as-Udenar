@@ -1,4 +1,4 @@
-import { createEstudiante } from '../service/api'
+import { createEstudiante }  from '../service/api.js';
 
 document.getElementById('registroFormEst').addEventListener('submit', function(event) {
     event.preventDefault();

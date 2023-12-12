@@ -1,4 +1,4 @@
-import { createProgramaAcademico } from '../service/api'
+import { createProgramaAcademico } from '../service/api.js';
 
 document.getElementById('registroFormProgram').addEventListener('submit', function(event) {
     event.preventDefault();

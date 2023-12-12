@@ -1,4 +1,4 @@
-import { createCoordinadorPrograma } from '../service/api'
+import { createCoordinadorPrograma }  from '../service/api.js';
 
 document.getElementById('registroFormCord').addEventListener('submit', function(event) {
     event.preventDefault();
