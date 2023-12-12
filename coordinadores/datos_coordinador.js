@@ -1,3 +1,5 @@
+import { createCoordinadorPrograma } from '../service/api'
+
 document.getElementById('registroFormCord').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -26,4 +28,25 @@ function validarFormulario() {
     console.log('correo: ' + correo);
     console.log('genero: ' + genero);
     console.log('fechaNacimiento: ' + fechaNacimiento);
+
+    createCoordinadorPrograma({
+        idCoordinadorPrograma:0,
+        nombre: nombre + ' ' + apellido, 
+        identificacion: identificacion,
+        direccion: direccion,
+        telefono: telefono,
+        correo: correo,
+        genero: genero,
+        fechaNac: fechaNacimiento,
+        fechaVinculacion: fechaVinculacion,
+        adjuntos: []
+
+    }).then(res => {
+        alert('Coordinador registrado correctamente');
+    }
+    ).catch(err => {
+        alert('Error al registrar coordinador');
+    }
+    );
+
 }

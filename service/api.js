@@ -1,10 +1,7 @@
-import axios, { AxiosRequestConfig } from 'axios';
-import {CoordinadorPrograma,Cohorte,Docente,Estudiante,ProgramaAcademico} from '../types'
-  
-export async function createCoordinadorPrograma(data: CoordinadorPrograma): Promise<any> {
+export async function createCoordinadorPrograma(data) {
   const url = 'http://www.gestionprogramaacademico.somee.com/CoordinadorPrograma';
 
-  const requestConfig: AxiosRequestConfig = {
+  const requestConfig = {
     method: 'POST',
     url,
     data,
@@ -23,10 +20,10 @@ export async function createCoordinadorPrograma(data: CoordinadorPrograma): Prom
 }
 
 
-export async function createCohorte(data: Cohorte): Promise<any> {
+export async function createCohorte(data) {
   const url = 'http://www.gestionprogramaacademico.somee.com/Cohorte';
 
-  const requestConfig: AxiosRequestConfig = {
+  const requestConfig = {
     method: 'POST',
     url,
     data,
@@ -44,15 +41,17 @@ export async function createCohorte(data: Cohorte): Promise<any> {
   }
 }
 
-export async function createDocente(data: Docente): Promise<any> {
+export async function createDocente(data) {
     const url = 'http://www.gestionprogramaacademico.somee.com/Docente';
   
-    const requestConfig: AxiosRequestConfig = {
+    const requestConfig = {
       method: 'POST',
       url,
       data,
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'origin': '127.0.0.1:8000'
       },
     };
   
@@ -65,10 +64,10 @@ export async function createDocente(data: Docente): Promise<any> {
     }
   }
   
-async function createEstudiante(data: Estudiante): Promise<any> {
+export async function createEstudiante(data) {
     const url = 'http://www.gestionprogramaacademico.somee.com/Estudiante';
 
-    const requestConfig: AxiosRequestConfig = {
+    const requestConfig = {
         method: 'POST',
         url,
         data,
@@ -86,10 +85,10 @@ async function createEstudiante(data: Estudiante): Promise<any> {
     }
 }
 
-async function createProgramaAcademico(data: ProgramaAcademico): Promise<any> {
+export async function createProgramaAcademico(data) {
     const url = 'http://www.gestionprogramaacademico.somee.com/ProgramaAcademico';
   
-    const requestConfig: AxiosRequestConfig = {
+    const requestConfig = {
       method: 'POST',
       url,
       data,

@@ -8,7 +8,7 @@ export interface CoordinadorPrograma {
     genero: string;
     fechaNac: string;
     fechaVinculacion: string;
-    adjuntos: any[]; // Puedes ajustar el tipo según la estructura real de los adjuntos
+    adjuntos: any[]; 
   }
   
 export interface Cohorte {

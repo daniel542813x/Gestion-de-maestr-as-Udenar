@@ -1,3 +1,5 @@
+import { createDocente } from '../service/api.js';
+
 document.getElementById('registroForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -26,6 +28,27 @@ function validarFormulario() {
     console.log('correo: ' + correo);
     console.log('genero: ' + genero);
     console.log('fechaNacimiento: ' + fechaNacimiento);
+
+    createDocente({
+        codigoDocente:0,
+        nombre: nombre + ' ' + apellido,
+        identificacion: identificacion,
+        direccion: direccion,
+        telefono: telefono,
+        correo: correo,
+        genero: genero,
+        fechaNac: fechaNacimiento,
+        formacionAcademica: cuadroTexto1Value,
+        areasConocimiento: cuadroTexto2Value
+    }).then(res => {
+        console.log(res);
+        alert('Docente registrado correctamente');
+    }
+    ).catch(err => {
+        alert('Error al registrar docente');
+    }
+    );
+
 }
 
 
