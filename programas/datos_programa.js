@@ -17,10 +17,10 @@ function validarFormulario() {
         lineasInvestigacionByProgramaAcademicos: document.getElementById('lnInves').value.trim(),
         logoByProgramaAcademicos: document.getElementById('logo').value.trim(),
     }).then(res => {
-        alert('Estudiante registrado correctamente');
+        alert('Programa registrado correctamente');
     }
     ).catch(err => {
-        alert('Error al registrar estudiante');
+        alert('Error al registrar Programa');
     }
     );
 

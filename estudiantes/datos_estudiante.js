@@ -15,7 +15,6 @@ function validarFormulario() {
     var direccion = document.getElementById('direccion').value.trim();
     var telefono = document.getElementById('telefono').value.trim();
     var correo = document.getElementById('correo').value.trim();
-    var genero = document.getElementById('genero').value.trim();
     var fechaNacimiento = document.getElementById('fechaNacimiento').value.trim();
     var genero = document.getElementById('genero').value.trim();
     var semestre= document.getElementById('semestre').value.trim();
@@ -35,7 +34,6 @@ function validarFormulario() {
         fechaNac: fechaNacimiento,
         semestre: semestre,
         estadoCivil:estadoCivil,
-        fechaVinculacion: fechaVinculacion,
         fechaIngreso:fechaIngreso,
         fechaEgreso:fechaEgreso,
         idCohorte:cohorte
