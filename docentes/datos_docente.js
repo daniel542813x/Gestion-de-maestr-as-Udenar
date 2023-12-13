@@ -6,6 +6,12 @@ document.getElementById('registroForm').addEventListener('submit', function(even
     if (validarFormulario()) {
         this.submit();
     }
+    this.reset();
+    
+});
+
+document.getElementById('backButton').addEventListener('click', function() {
+    window.history.back();
 });
 
 function validarFormulario() {

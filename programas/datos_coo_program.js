@@ -6,6 +6,11 @@ document.getElementById('registroFormCordPro').addEventListener('submit', functi
     if (validarFormulario()) {
         this.submit();
     }
+    this.reset();
+});
+
+document.getElementById('backButton').addEventListener('click', function() {
+    window.history.back();
 });
 
 function validarFormulario() {
