@@ -20,6 +20,12 @@
 
   <body>
     <div class="container">
+        <a id="backButton">
+            <img src="https://i.ibb.co/hXrNHXB/angulo-izquierdo.png" alt="retroceder" >
+          </a>
+        <hr>
+    </div>
+    <div class="container">
       <form id="registroFormProgram">
         <div class="row">
             <div class="col-sm-4">
@@ -27,7 +33,7 @@
                 <input type="text" id="nombre" name="nombre" class="form-control" required>
             </div>
             <div class="col-sm-4">
-                <label for="identificacion">Descriptcion:</label>
+                <label for="identificacion">Descripción:</label>
                 <input type="text" id="descriptcion" name="descriptcion" class="form-control" required>
             </div>
             <div class="col-sm-4">
@@ -56,13 +62,11 @@
                 <input type="file" class="form-control" id="resolucionfile" name="resolucionfile" required>
             </div>
         </div>        
-        <br>
-        <br>
-        <button class="bg-primary" style="margin-bottom: 50px;" type="submit" >Registrar Programa</button>
-
+        <hr>
+        <button class="bg-success" style="margin-bottom: 50px;" type="submit" >Registrar Programa</button>
+        <input type="reset" value="Cancelar" class="bg-danger">
     </form>
     </div>
-    <br>
     <div class="footer">
       <p>&copy; 2023 Universidad de Nariño | Todos los derechos reservados 
           <br>

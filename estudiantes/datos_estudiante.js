@@ -6,6 +6,11 @@ document.getElementById('registroFormEst').addEventListener('submit', function(e
     if (validarFormulario()) {
         this.submit();
     }
+    this.reset();
+});
+
+document.getElementById('backButton').addEventListener('click', function() {
+    window.history.back();
 });
 
 function validarFormulario() {
