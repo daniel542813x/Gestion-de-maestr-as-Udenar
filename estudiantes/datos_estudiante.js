@@ -11,7 +11,7 @@ document.getElementById('registroFormEst').addEventListener('submit', function(e
 function validarFormulario() {
     var nombre = document.getElementById('nombre').value.trim();
     var identificacion = document.getElementById('identificacion').value.trim();
-    var codigoEstudiante = document.getElementById('cod').value.trim();
+    var codigoEstudiante = 0;
     var direccion = document.getElementById('direccion').value.trim();
     var telefono = document.getElementById('telefono').value.trim();
     var correo = document.getElementById('correo').value.trim();

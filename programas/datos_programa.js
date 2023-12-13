@@ -14,8 +14,8 @@ function validarFormulario() {
         nombre: document.getElementById('nombre').value.trim(),
         correo: document.getElementById('correo').value.trim(),
         fechaResolucionRegistro:document.getElementById('resolucion').value.trim(),
-        lineasInvestigacionByProgramaAcademicos: document.getElementById('lnInves').value.trim(),
-        logoByProgramaAcademicos: document.getElementById('logo').value.trim(),
+        //lineasInvestigacionByProgramaAcademicos: document.getElementById('lnInves').value.trim(),
+        //logoByProgramaAcademicos: document.getElementById('logo').value.trim(),
     }).then(res => {
         alert('Programa registrado correctamente');
     }

@@ -21,7 +21,8 @@ export async function createCoordinadorPrograma(data) {
 
 
 export async function createCohorte(data) {
-  const url = 'http://www.gestionprogramaacademico.somee.com/Cohorte';
+ // const url = 'https://localhost:7275/Cohorte';
+ const url = 'http://www.gestionprogramaacademico.somee.com/Cohorte';
 
   const requestConfig = {
     method: 'POST',
@@ -36,6 +37,7 @@ export async function createCohorte(data) {
     const response = await axios(requestConfig);
     return response.data;
   } catch (error) {
+    console.log(error)
     console.error('Error al realizar la solicitud:', error.message);
     throw error;
   }
@@ -66,13 +68,16 @@ export async function createDocente(data) {
   
 export async function createEstudiante(data) {
     const url = 'http://www.gestionprogramaacademico.somee.com/Estudiante';
+     //const url = 'https://localhost:7275/Estudiante';
 
     const requestConfig = {
         method: 'POST',
         url,
         data,
         headers: {
-        'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'origin': '127.0.0.1:8000'
         },
     };
 
@@ -87,6 +92,7 @@ export async function createEstudiante(data) {
 
 export async function createProgramaAcademico(data) {
     const url = 'http://www.gestionprogramaacademico.somee.com/ProgramaAcademico';
+    
   
     const requestConfig = {
       method: 'POST',
