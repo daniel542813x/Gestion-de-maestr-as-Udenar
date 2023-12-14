@@ -22,6 +22,15 @@ function validarFormulario() {
     var correo = document.getElementById('correo').value.trim();
     var genero = document.getElementById('genero').value.trim();
     var fechaNacimiento = document.getElementById('fechaNacimiento').value.trim();
+
+    var fechaActual = new Date();
+    var fechaNac = new Date(fechaNacimiento);
+    var edad = fechaActual.getFullYear() - fechaNac.getFullYear();
+    if (edad < 18) {
+        alert('Debe ser mayor de 18 años para registrarse como coordinador.');
+        return false;
+    }
+
     var fechaVinculacion = document.getElementById('fechaVinculacion').value.trim();
 
 

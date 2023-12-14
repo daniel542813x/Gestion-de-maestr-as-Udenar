@@ -23,6 +23,17 @@ function validarFormulario() {
     var correo = document.getElementById('correo').value.trim();
     var genero = document.getElementById('genero').value.trim();
     var fechaNacimiento = document.getElementById('fechaNacimiento').value.trim();
+
+    var fechaActual = new Date();
+    var fechaNac = new Date(fechaNacimiento);
+    var edad = fechaActual.getFullYear() - fechaNac.getFullYear();
+    if (edad < 18) {
+        alert('Debe ser mayor de 18 años para registrarse como docente.');
+        return false;
+    }
+
+
+
     var cuadroTexto1Value = document.getElementById('cuadroTexto1').value.trim();
     var cuadroTexto2Value = document.getElementById('cuadroTexto2').value.trim();
 
