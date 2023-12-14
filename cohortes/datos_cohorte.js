@@ -24,7 +24,7 @@ function validarFormulario() {
         alert('Cohorte registrado correctamente');
     }
     ).catch(err => {
-        alert('Error al registrar cohorte');
+        alert('Error al registrar cohorte: '+err.response.data);
     }
     );
 

@@ -25,7 +25,8 @@ function validarFormulario() {
         alert('Programa registrado correctamente');
     }
     ).catch(err => {
-        alert('Error al registrar Programa');
+        console.log(err.response.data)
+        alert('Error al registrar Programa:'+err.response.data);
     }
     );
 

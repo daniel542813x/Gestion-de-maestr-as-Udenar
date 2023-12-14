@@ -23,7 +23,7 @@ function validarFormulario() {
         alert('Asociacion correcta');
     }
     ).catch(err => {
-        alert('Error al registrar');
+        alert('Error al registrar'+err.response.data);
     }
     );
 

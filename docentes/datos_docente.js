@@ -51,7 +51,7 @@ function validarFormulario() {
         alert('Docente registrado correctamente');
     }
     ).catch(err => {
-        alert('Error al registrar docente');
+        alert('Error al registrar docente:'+err.response.data);
     }
     );
 

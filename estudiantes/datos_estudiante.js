@@ -47,7 +47,7 @@ function validarFormulario() {
         alert('Estudiante registrado correctamente');
     }
     ).catch(err => {
-        alert('Error al registrar estudiante');
+        alert('Error al registrar estudiante:'+err.response.data);
     }
     );
 

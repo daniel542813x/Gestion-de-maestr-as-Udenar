@@ -50,7 +50,7 @@ function validarFormulario() {
         alert('Coordinador registrado correctamente');
     }
     ).catch(err => {
-        alert('Error al registrar coordinador');
+        alert('Error al registrar coordinador:'+err.response.data);
     }
     );
 
