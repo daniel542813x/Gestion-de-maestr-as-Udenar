@@ -136,3 +136,16 @@ export async function asociarProgramaCoordinador(data){
   }
 }
   
+//------------------------------------------------------
+export async function getAllProgramasAcademicos() {
+  const url = 'http://www.gestionprogramaacademico.somee.com/ProgramaAcademico';
+
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener los programas académicos:', error.message);
+    throw error;
+  }
+}
+
