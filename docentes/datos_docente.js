@@ -1,4 +1,31 @@
-import { createDocente } from '../service/api.js';
+import { createDocente,getAllDocentes } from '../service/api.js';
+
+document.getElementById('generateCsvBtn2').addEventListener('click', async function () {
+    const apiResponse = await getAllDocentes()
+    console.log(apiResponse);
+
+    const columnNames = Object.keys(apiResponse[0]);
+
+    const csvData = [
+        columnNames.map(name => `"${name}"`).join(','),
+        ...apiResponse.map(student => Object.values(student).map(value => `"${value}"`).join(','))
+    ].join('\n');    
+    
+    const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.href = url;
+    link.download = 'docentes.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    visualizarDocentes();
+  });
+
 
 document.getElementById('registroForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -37,15 +64,6 @@ function validarFormulario() {
     var cuadroTexto1Value = document.getElementById('cuadroTexto1').value.trim();
     var cuadroTexto2Value = document.getElementById('cuadroTexto2').value.trim();
 
-    console.log('nombre: ' + nombre);
-    console.log('apellido: ' + apellido);
-    console.log('identificacion: ' + identificacion);
-    console.log('direccion: ' + direccion);
-    console.log('telefono: ' + telefono);
-    console.log('correo: ' + correo);
-    console.log('genero: ' + genero);
-    console.log('fechaNacimiento: ' + fechaNacimiento);
-
     createDocente({
         codigoDocente:0,
         nombre: nombre + ' ' + apellido,
@@ -68,4 +86,39 @@ function validarFormulario() {
 
 }
 
+export async function visualizarDocentes() {
+    try {
+        const docentes_data = await getAllDocentes();
+        const tableBody = document.getElementById('docentesTableBody');
 
+        docentes_data.forEach(docentes => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${docentes.codigoDocente}</td>
+                <td>${docentes.nombre}</td>
+                <td>${docentes.identificacion}</td>
+                <td>${docentes.direccion}</td>
+                <td>${docentes.telefono}</td>
+                <td>${docentes.correo}</td>
+                <td>${docentes.genero}</td>
+                <td>${docentes.fechaNac}</td>
+                <td>${docentes.formacionAcademica}</td>
+                <td>${docentes.areasConocimiento}</td>
+                <td>
+                    <a href="#"><img src="https://i.ibb.co/LNFGXhb/ojo.png" alt="ver"></a>
+                    <a href="#"><img src="https://i.ibb.co/HD9mM18/lapiz-2.png" alt="lapiz"></a>
+                    <a href="#"><img src="https://i.ibb.co/JxBPRnd/basura.png" alt="basura"></a>
+                </td>
+            `;
+            tableBody.append(row);
+        });
+        $('#tabladocenteses').DataTable({
+            "paging": true,
+            "searching": false,
+            "lengthChange": false,
+        });
+    } catch (error) {
+        // Manejar el error según tus necesidades
+        console.error('Error al visualizar docenteses de programa:', error.message);
+    }
+}
