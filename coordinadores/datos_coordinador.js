@@ -1,4 +1,45 @@
 import { createCoordinadorPrograma }  from '../service/api.js';
+import { getAllCoordinadorPrograma } from '../service/api.js';
+
+export async function visualizarCoordinadoresPrograma() {
+    try {
+        const coordinadoresPrograma = await getAllCoordinadorPrograma();
+        const tableBody = document.getElementById('coordinadoresTableBody');
+
+        coordinadoresPrograma.forEach(coordinador => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${coordinador.idCoordinadorPrograma}</td>
+                <td>${coordinador.nombre}</td>
+                <td>${coordinador.identificacion}</td>
+                <td>${coordinador.direccion}</td>
+                <td>${coordinador.telefono}</td>
+                <td>${coordinador.correo}</td>
+                <td>${coordinador.genero}</td>
+                <td>${coordinador.fechaNac}</td>
+                <td>${coordinador.fechaVinculacion}</td>
+                <td>
+                    <a href="#"><img src="https://i.ibb.co/LNFGXhb/ojo.png" alt="ver"></a>
+                    <a href="#"><img src="https://i.ibb.co/HD9mM18/lapiz-2.png" alt="lapiz"></a>
+                    <a href="#"><img src="https://i.ibb.co/JxBPRnd/basura.png" alt="basura"></a>
+                </td>
+            `;
+            tableBody.append(row);
+        });
+        $('#tablaCoordinadores').DataTable({
+            "paging": true,
+            "searching": false,
+            "lengthChange": false,
+        });
+    } catch (error) {
+        // Manejar el error según tus necesidades
+        console.error('Error al visualizar coordinadores de programa:', error.message);
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    visualizarCoordinadoresPrograma();
+    
+  });
 
 document.getElementById('registroFormCord').addEventListener('submit', function(event) {
     event.preventDefault();

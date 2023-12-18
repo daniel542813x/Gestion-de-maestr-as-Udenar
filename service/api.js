@@ -149,3 +149,15 @@ export async function getAllProgramasAcademicos() {
   }
 }
 
+export async function getAllCoordinadorPrograma() {
+  const url = 'http://www.gestionprogramaacademico.somee.com/CoordinadorPrograma';
+
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener los coordinadores académicos:', error.message);
+    throw error;
+  }
+}
+
