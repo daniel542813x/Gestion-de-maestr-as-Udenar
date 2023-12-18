@@ -161,3 +161,40 @@ export async function getAllCoordinadorPrograma() {
   }
 }
 
+export async function getAllCohortes() {
+  const url = 'http://www.gestionprogramaacademico.somee.com/Cohorte';
+
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener los cohortes:', error.message);
+    throw error;
+  }
+}
+
+export async function getAllDocentes() {
+  const url = 'http://www.gestionprogramaacademico.somee.com/Docente';
+
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener los docentes:', error.message);
+    throw error;
+  }
+}
+
+export async function getAllEstudiantes() {
+  const url = 'http://www.gestionprogramaacademico.somee.com/Estudiante';
+
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener los estudiantes:', error.message);
+    throw error;
+  }
+}
+
+

@@ -1,4 +1,29 @@
-import { createEstudiante }  from '../service/api.js';
+import { createEstudiante,getAllEstudiantes }  from '../service/api.js';
+
+document.getElementById('generateCsvBtn').addEventListener('click', async function () {
+    const apiResponse = await getAllEstudiantes()
+    console.log(apiResponse);
+
+    const columnNames = Object.keys(apiResponse[0]);
+
+    const csvData = [
+        columnNames.map(name => `"${name}"`).join(','),
+        ...apiResponse.map(student => Object.values(student).map(value => `"${value}"`).join(','))
+    ].join('\n');    
+    
+    const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.href = url;
+    link.download = 'datos.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    visualizarStudents();
+  });
 
 document.getElementById('registroFormEst').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -52,3 +77,46 @@ function validarFormulario() {
     );
 
 }
+
+
+export async function visualizarStudents() {
+    try {
+        const students_data = await getAllEstudiantes();
+        const tableBody = document.getElementById('studentsTableBody');
+
+        students_data.forEach(students => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${students.codigoEstudiante}</td>
+                <td>${students.nombre}</td>
+                <td>${students.identificacion}</td>
+                <td>${students.direccion}</td>
+                <td>${students.telefono}</td>
+                <td>${students.correo}</td>
+                <td>${students.genero}</td>
+                <td>${students.fechaNac}</td>
+                <td>${students.semestre}</td>
+                <td>${students.estadoCivil}</td>
+                <td>${students.fechaIngreso}</td>
+                <td>${students.fechaEgreso}</td>
+                <td>${students.idCohorte}</td>
+                <td>
+                    <a href="#"><img src="https://i.ibb.co/LNFGXhb/ojo.png" alt="ver"></a>
+                    <a href="#"><img src="https://i.ibb.co/HD9mM18/lapiz-2.png" alt="lapiz"></a>
+                    <a href="#"><img src="https://i.ibb.co/JxBPRnd/basura.png" alt="basura"></a>
+                </td>
+            `;
+            tableBody.append(row);
+        });
+        $('#tablastudentses').DataTable({
+            "paging": true,
+            "searching": false,
+            "lengthChange": false,
+        });
+    } catch (error) {
+        // Manejar el error según tus necesidades
+        console.error('Error al visualizar studentses de programa:', error.message);
+    }
+}
+
+
