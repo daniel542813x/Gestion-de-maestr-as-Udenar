@@ -43,7 +43,6 @@
               <th>Ingreso</th>
               <th>Egreso</th>
               <th>Cohorte</th>
-              <th>Opciones</th>
             </tr>
           </thead>
           <tbody id="studentsTableBody">
@@ -68,6 +67,30 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="module" src="datos_estudiante.js"></script>
+<script>
+
+  function updateUsuario(students_data) {
+    //navigate to stdents_form.html and pass the data to the form.
+    let url = new URL("students_form.html", window.location.href);
+    url.searchParams.append("id", students_data.codigoEstudiante);
+    url.searchParams.append("nombre", students_data.nombre);
+    url.searchParams.append("identificacion", students_data.identificacion);
+    url.searchParams.append("direccion", students_data.direccion);
+    url.searchParams.append("telefono", students_data.telefono);
+    url.searchParams.append("correo", students_data.correo);
+    url.searchParams.append("genero", students_data.genero);
+    url.searchParams.append("fechaNacimiento", students_data.fechaNac.toString().split("T")[0]);
+    url.searchParams.append("semestre", students_data.semestre);
+    url.searchParams.append("estado", students_data.estadoCivil);
+    url.searchParams.append("fechaIngreso", students_data.fechaIngreso.toString().split("T")[0]);
+    url.searchParams.append("fechaEgreso", students_data.fechaEgreso.toString().split("T")[0]);
+    url.searchParams.append("cohorte", students_data.idCohorte);
+  
+    window.location.href = url.href;
+}
+
+
+</script>
 
   </body>
 </html>

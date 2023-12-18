@@ -2,7 +2,6 @@ import { createEstudiante,getAllEstudiantes }  from '../service/api.js';
 
 document.getElementById('generateCsvBtn').addEventListener('click', async function () {
     const apiResponse = await getAllEstudiantes()
-    console.log(apiResponse);
 
     const columnNames = Object.keys(apiResponse[0]);
 
@@ -78,6 +77,10 @@ function validarFormulario() {
 
 }
 
+export function updateUsuario(students_data) {
+    console.log(students_data);
+}
+
 
 export async function visualizarStudents() {
     try {
@@ -94,16 +97,16 @@ export async function visualizarStudents() {
                 <td>${students.telefono}</td>
                 <td>${students.correo}</td>
                 <td>${students.genero}</td>
-                <td>${students.fechaNac}</td>
+                <td>${students.fechaNac.toString().split("T")[0]}</td>
                 <td>${students.semestre}</td>
                 <td>${students.estadoCivil}</td>
-                <td>${students.fechaIngreso}</td>
-                <td>${students.fechaEgreso}</td>
+                <td>${students.fechaIngreso.toString().split("T")[0]}</td>
+                <td>${students.fechaEgreso.toString().split("T")[0]}</td>
                 <td>${students.idCohorte}</td>
                 <td>
-                    <a href="#"><img src="https://i.ibb.co/LNFGXhb/ojo.png" alt="ver"></a>
-                    <a href="#"><img src="https://i.ibb.co/HD9mM18/lapiz-2.png" alt="lapiz"></a>
-                    <a href="#"><img src="https://i.ibb.co/JxBPRnd/basura.png" alt="basura"></a>
+                    <a href="#" onclick="updateUsuario(${JSON.stringify(students).replace(/"/g, "&quot;")})">
+                        <img src="https://i.ibb.co/HD9mM18/lapiz-2.png" alt="lapiz"/>
+                    </a>
                 </td>
             `;
             tableBody.append(row);

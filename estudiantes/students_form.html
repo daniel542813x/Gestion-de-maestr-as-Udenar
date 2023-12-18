@@ -26,8 +26,6 @@
             <img src="https://i.ibb.co/hXrNHXB/angulo-izquierdo.png" alt="retroceder">
         </a>
         <hr>
-    </div>
-
     <form id="registroFormEst">
         <div class="row">
             <div class="col-sm-4">
@@ -105,14 +103,16 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-sm-6">
-                <button class="bg-success" type="submit">Registrar Estudiante</button>
+            <div class="col-sm-2">
+                <button class="bg-success" id="regStudentButton" type="submit">Registrar Estudiante</button>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-2">
                 <input type="reset" value="Cancelar" class="bg-danger">
             </div>
+            <hr>
         </div>
     </form>
+    </div>
 
     <div class="footer">
         <p>&copy; 2023 Universidad de Nariño | Todos los derechos reservados <br> San Juan de Pasto - Nariño -
@@ -124,6 +124,25 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script type="module" src="./datos_estudiante.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('id')){
+            document.getElementById('nombre').value = params.get('nombre');
+            document.getElementById('identificacion').value = params.get('identificacion');
+            document.getElementById('direccion').value = params.get('direccion');
+            document.getElementById('telefono').value = params.get('telefono');
+            document.getElementById('correo').value = params.get('correo');
+            document.getElementById('genero').value = params.get('genero').toUpperCase();
+            document.getElementById('fechaNacimiento').value = params.get('fechaNacimiento');
+            document.getElementById('semestre').value = params.get('semestre');
+            document.getElementById('estado').value = params.get('estado');
+            document.getElementById('fechaingreso').value = params.get('fechaIngreso');
+            document.getElementById('fechaegreso').value = params.get('fechaEgreso');
+            document.getElementById('cohorte').value = params.get('cohorte');
+            document.getElementById('cod').value = params.get('id');
+        }
+    
+    </script>
 </body>
 
 </html>
