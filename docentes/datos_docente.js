@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-document.getElementById('registroForm').addEventListener('submit', function(event) {
+document.getElementById('registroFormEst').addEventListener('submit', function(event) {
     event.preventDefault();
 
     if (validarFormulario()) {
@@ -87,7 +87,7 @@ function validarFormulario() {
 }
 
 export async function visualizarDocentes() {
-    try {
+    try{
         const docentes_data = await getAllDocentes();
         const tableBody = document.getElementById('docentesTableBody');
 
@@ -101,8 +101,6 @@ export async function visualizarDocentes() {
                 <td>${docentes.telefono}</td>
                 <td>${docentes.correo}</td>
                 <td>${docentes.genero}</td>
-                <td>${docentes.fechaNac}</td>
-                <td>${docentes.formacionAcademica}</td>
                 <td>${docentes.areasConocimiento}</td>
                 <td>
                     <a href="#"><img src="https://i.ibb.co/LNFGXhb/ojo.png" alt="ver"></a>
@@ -112,13 +110,14 @@ export async function visualizarDocentes() {
             `;
             tableBody.append(row);
         });
-        $('#tabladocenteses').DataTable({
+        $('#tabladocentes').DataTable({
             "paging": true,
             "searching": false,
             "lengthChange": false,
         });
     } catch (error) {
-        // Manejar el error según tus necesidades
-        console.error('Error al visualizar docenteses de programa:', error.message);
+        console.error('Error al visualizar docentes:', error.message);
     }
+        
+    
 }

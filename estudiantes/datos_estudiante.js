@@ -93,14 +93,11 @@ export async function visualizarStudents() {
                 <td>${students.codigoEstudiante}</td>
                 <td>${students.nombre}</td>
                 <td>${students.identificacion}</td>
-                <td>${students.direccion}</td>
                 <td>${students.telefono}</td>
                 <td>${students.correo}</td>
                 <td>${students.genero}</td>
                 <td>${students.fechaNac.toString().split("T")[0]}</td>
                 <td>${students.semestre}</td>
-                <td>${students.estadoCivil}</td>
-                <td>${students.fechaIngreso.toString().split("T")[0]}</td>
                 <td>${students.fechaEgreso.toString().split("T")[0]}</td>
                 <td>${students.idCohorte}</td>
                 <td>

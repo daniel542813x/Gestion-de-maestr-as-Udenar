@@ -57,7 +57,7 @@ export async function visualizarcohorte() {
             `;
             tableBody.append(row);
         });
-        $('#tablacohortees').DataTable({
+        $('#tablaCohortes').DataTable({
             "paging": true,
             "searching": false,
             "lengthChange": false,

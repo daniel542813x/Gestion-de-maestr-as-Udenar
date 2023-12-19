@@ -1,62 +1,77 @@
-.container{
-  
-  flex: 1; 
+.container {
+  flex: 1;
 }
-  .card-header {
-    position: relative;
-    width: 100%;
-    overflow: hidden; 
-  }
 
-  .card-header img {
-    width: 100%;
-    height: 130px;
-    display: block;
-  }
-  .imagen-overlay{
-    position: absolute;
-    top: 50%;
-    left: 85%;
-    transform: translate(-60%, -50%) scale(0.8);
-  }
-  .texto-boton{
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    color: #002D43;
-    margin-bottom: 50px;
-  }
-  a{
-    text-decoration: none;
-  }
-  .iconos{
-    border-radius: 50%;
-    border: 2px solid #3498db;
-  }
-  .footer {
-    position: relative;
-    text-align: center;
-    background-color: #002D43;
-    color: #fff;
-    padding: 10px 0;
-    width: 100%;
-    bottom: 0;
-    height: 70px;
-  }
-  .text-inicio{
-    background-color: #3498db;
-    font-family: 'Monaco', sans-serif;
-    color: #002D43;
-    margin-bottom: 50px;
-  }
-  .text-area{
-    width: 100%; 
-    height: 40px;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
+.card-header {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
-.titulos{
+
+.card-header img {
+  width: 100%;
+  height: 130px;
+  display: block;
+}
+
+.imagen-overlay {
+  position: absolute;
+  top: 50%;
+  left: 85%;
+  transform: translate(-60%, -50%) scale(0.8);
+}
+
+.texto-boton {
+  font-family: 'Arial', sans-serif;
   text-align: center;
+  color: #002D43;
+  margin-bottom: 50px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.iconos {
+  border-radius: 50%;
+  border: 2px solid #3498db;
+}
+
+.footer {
+  position: relative;
+  text-align: center;
+  background-color: #002D43;
+  color: #fff;
+  padding: 10px 0;
+  width: 100%;
+  bottom: 0;
+  height: 70px;
+}
+
+.text-inicio {
+  background-color: #3498db;
+  font-family: 'Monaco', sans-serif;
+  color: #002D43;
+  margin-bottom: 50px;
+}
+
+.text-area {
+  width: 100%;
+  height: 40px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.titulos {
+  text-align: center;
+}
+
+.tabla-container {
+  margin: 0 auto; 
+  width: 80%; 
+  margin-top: 20px; 
 }
