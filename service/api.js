@@ -93,7 +93,7 @@ export async function createEstudiante(data) {
 export async function createProgramaAcademico(data) {
     const url = 'http://www.gestionprogramaacademico.somee.com/ProgramaAcademico';
     
-  
+    updateEstudiantePut
     const requestConfig = {
       method: 'POST',
       url,
@@ -196,5 +196,28 @@ export async function getAllEstudiantes() {
     throw error;
   }
 }
+
+export async function updateEstudiantePut(data) {
+  const url = 'http://www.gestionprogramaacademico.somee.com/Estudiante';
+
+  const requestConfig = {
+    method: 'PUT',
+    url,
+    data,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const response = await axios(requestConfig);
+    return response.data;
+  } catch (error) {
+    console.error('Error al actualizar el estudiante:', error.message);
+    throw error;
+  }
+}
+
+export default {}
 
 

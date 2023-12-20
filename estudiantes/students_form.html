@@ -31,6 +31,7 @@
             <div class="col-sm-4">
                 <label for="nombre">Nombre Completo:</label>
                 <input type="text" id="nombre" name="nombre" class="form-control" required>
+                <input type="hidden" id="idcod" name="idcod">
             </div>
             <div class="col-sm-4">
                 <label for="identificacion">Identificación:</label>
@@ -135,6 +136,7 @@
             document.getElementById('fechaegreso').value = params.get('fechaEgreso');
             document.getElementById('cohorte').value = params.get('cohorte');
             document.getElementById('cod').value = params.get('id');
+            document.getElementById('idcod').value = params.get('id');
         }
     
     </script>
